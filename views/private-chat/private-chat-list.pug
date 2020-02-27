@@ -1,0 +1,21 @@
+include ../includes/head.pug
+block links
+    link(rel="stylesheet", href="/css/private-chat-list.css")
+include ../includes/navigation.pug
+
+main
+    h1.centered.optware-green #{pageTitle}
+    .private-chat-list-container
+        each chat, index in chats
+            .private-chat-list-item(class="private-chat-list-row-" + (index%2 + 1) id="chat_list_item_" + chat.id)
+                .private-chat-list-item__picture(style="background-image: url('/images/" + chat.chatPartner.imagePath + "')")
+                .private-chat-list-item__name
+                    p #{chat.chatPartner.name}
+                if chat.newMessagesCount > 0
+                    .private-chat-new-message-counter 
+                        p #{chat.newMessagesCount}
+
+
+include ../includes/end.pug
+block scripts
+    script(src = '/js/private-chat-list.js')

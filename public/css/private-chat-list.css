@@ -1,0 +1,76 @@
+.private-chat-list-container {
+    width: 30rem;
+    max-width: 99%;
+
+    margin: auto;
+    display: block;
+}
+
+.private-chat-list-item {
+    background-color: rgb(152, 204, 2, 0.6);
+    height: 50px;
+}
+
+.private-chat-list-row-1 {
+    background-color: rgb(152, 204, 2, 0.6);
+}
+
+.private-chat-list-row-1:hover {
+    background-color: rgb(152, 204, 2, 0.9);
+}
+
+.private-chat-list-row-2 {
+    background-color: rgb(152, 204, 2, 0.8);
+}
+.private-chat-list-row-2:hover {
+    background-color: rgb(152, 204, 2, 1);
+}
+
+.private-chat-list-item__picture {
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 25px;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+}
+
+.private-chat-list-row-1 .private-chat-list-item__picture {
+    border: solid rgb(152, 204, 2, 0.8) 2px;
+}
+
+.private-chat-list-row-2 .private-chat-list-item__picture {
+    border: solid rgb(152, 204, 2, 0.6) 2px;
+}
+
+.private-chat-list-item__name {
+    width: calc(100% - 100px);
+    height: 50px;
+    display: inline-block;
+}
+
+.private-chat-list-item__name p {
+    display: table;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 25px;
+    margin: 0;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.private-chat-new-message-counter {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    text-align: center;
+}
+
+.private-chat-new-message-counter p {
+    display: table;
+    background-color: #003399;
+    color: white;
+    border-radius: 15px;
+    border: 2px solid white;
+    padding: 0 5px;
+}

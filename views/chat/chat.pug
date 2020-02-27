@@ -1,0 +1,23 @@
+include ../includes/head.pug
+block links 
+    link(rel="stylesheet", href="/css/forms.css")
+    link(rel="stylesheet", href="/css/chat.css")
+include ../includes/navigation.pug
+
+main.outer-main
+    .centered.optware-blue.inner_fixed-h1
+        h1.chat-title OptWare Chatfeed
+        #chat-connected-users
+    form(class="chat-form inner_remaining outer-form" id="chat_form")
+        .chat-feed-container.inner_remaining.scroll
+            #chat_feed.full-height.scroll
+        .chat-bottom
+            .form-control.chat-input
+                textarea(id="chat_input" autofocus type="text" name="chat_input" placeholder="Tippen...")
+            button#chat_button.chat-button.btn(type="submit")
+                i.fas.fa-paper-plane
+
+include ../includes/end.pug
+block scripts
+    script(src='/socket.io/socket.io.js')
+    script(src = 'js/chat.js')

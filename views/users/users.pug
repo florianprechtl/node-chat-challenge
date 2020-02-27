@@ -1,0 +1,23 @@
+include ../includes/head.pug
+block links
+    link(rel="stylesheet", href="/css/users.css")
+include ../includes/navigation.pug
+
+main
+    h1.centered.optware-green #{pageTitle}
+
+    table.user-list
+        tr.table-header-row
+            th Id
+            th Name
+            th Email
+            th Chatfarbe
+        each user, index in users
+            tr(class="table-content-row-" + (index%2 + 1))
+                td #{user.id}
+                td #{user.name}
+                td #{user.email}
+                td(style="color: " + user.chatcolor) #{user.chatcolor}
+
+include ../includes/end.pug
+block scripts

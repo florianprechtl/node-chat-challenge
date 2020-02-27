@@ -1,0 +1,42 @@
+include ../includes/head.pug
+block links 
+    link(rel="stylesheet", href="/css/forms.css")
+    link(rel="stylesheet", href="/css/chat.css")
+    link(rel="stylesheet", href="/css/private-chat.css")
+include ../includes/navigation.pug
+
+main.outer-main
+    .centered.optware-blue.inner_fixed-h1
+        h1.chat-title Private Chat mit #{chatPartner.name}
+        #chat-connected-users
+    form(class="chat-form inner_remaining outer-form" id="chat_form")
+        input(type="hidden", id="chatId" value=chatId)
+        .chat-feed-container.inner_remaining.scroll
+            #chat_feed.full-height.scroll
+                if oldMessages 
+                    each message in oldMessages
+                        - var isSender = message.sender_Id == userId
+                        if isSender
+                            .chat-message-container.message-left
+                                p.chat-sender Du
+                                p.chat-message #{message.message}
+                                p.chat-message-time #{message.time}
+                        else 
+                            .chat-message-container.message-right
+                                p.chat-sender #{chatPartner.name}
+                                p.chat-message #{message.message}
+                                p.chat-message-time #{message.time}
+                    .didiver-horizontal
+                        p.divider-text Neue Nachrichten
+
+        .chat-bottom
+            .form-control.chat-input
+                textarea(id="chat_input" autofocus type="text" name="chat_input" placeholder="Tippen...")
+            button#chat_button.chat-button.btn(type="submit")
+                i.fas.fa-paper-plane
+.
+
+include ../includes/end.pug
+block scripts
+    script(src='/socket.io/socket.io.js')
+    script(src='/js/private-chat.js')

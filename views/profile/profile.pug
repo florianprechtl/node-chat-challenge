@@ -1,0 +1,33 @@
+include ../includes/head.pug
+block links 
+    link(rel="stylesheet", href="/css/forms.css")
+    link(rel="stylesheet", href="/css/profile.css")
+    link(rel="stylesheet", href="/css/auth.css")
+include ../includes/navigation.pug
+
+main
+    h1.centered.optware-green #{pageTitle}
+    .grid-container
+        form(class="login-form" id="profile_form" action="/profile/update" method="post" enctype="multipart/form-data")
+            p Password ändern
+            .form-control
+                input(id="oldPassword" type="password" name="oldPassword" placeholder="Altes Passwort")
+            .form-control
+                input(id="newPassword" type="password" name="newPassword" placeholder="Neues Passwort")
+            .form-control
+                input(id="newPasswordRepeat" type="password" name="newPasswordRepeat" placeholder="Passwort wiederholen")
+            .divider
+            .form-control
+                label(for="image") Image
+                input(type="file", name="image" id="image")
+            .form-control
+                label(for="name") Name
+                input(id="name" type="text" name="name" placeholder="Name" value=`${user.name}`)
+            .form-control
+                label(for="chatColor") Chatfarbe in Hex
+                input(id="chat_color" type="text" length="7" name="chatColor" placeholder="#??????" maxlength="7" value=`${user.chatcolor}`)
+            button(class="btn" type="submit") Speichern
+    
+include ../includes/end.pug
+block scripts
+    script(src = 'js/profile.js')

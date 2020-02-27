@@ -1,0 +1,55 @@
+div(class="backdrop")
+header(class="main-header" id="main_header")
+    img(class="main-header__logo" src="/img/optware_logo_schrift.png" style="display: block; width: auto; height: 100%;") 
+    button(id="side-menu-toggle")
+        i(class="fas fa-bars")
+    nav(class="main-header__nav")
+        ul(class="main-header__item-list")
+        ul(class="main-header__item-list")
+            if !authenticated
+                li(class="main-header__item")
+                    a(href="/login", class=(path === '/login' ? 'active' : '')) Login
+                li(class="main-header__item")
+                    a(href="/signup", class=(path === '/signup' ? 'active' : '')) Signup
+            else
+                li(class="main-header__item")
+                    a(href="/chat", class=(path === '/chat' ? 'active' : '')) Chatfeed
+                li(class="main-header__item")
+                    a(href="/private-chat", class=(path === '/private-chat' ? 'active' : '')) Privatchat
+                li(class="main-header__item")
+                    a(href="/users", class=(path === '/users' ? 'active' : '')) Benutzerliste
+                li(class="main-header__divider") 
+                li(class="main-header__item")
+                    form(action="/logout" method="post")
+                        button(type="submit") Logout
+                li(class="main-header__item")
+                    a(href="/profile")
+                        .profile-img(style="background-image: url('/images/" + currentUser.imagePath + "')" class=(path === '/profile' ? 'active' : ''))
+
+nav(class="mobile-nav")  
+    ul(class="mobile-nav__item-list")
+        if !authenticated
+            li(class="mobile-nav__item")
+                a(href="/chat", class=(path === '/chat' ? 'active' : '')) Chatfeed
+            li(class="mobile-nav__item")
+                a(href="/private-chat", class=(path === '/private-chat' ? 'active' : '')) Privatchat
+            li(class="mobile-nav__item")
+                a(href="/profile", class=(path === '/profile' ? 'active' : '')) Profil
+            li(class="mobile-nav__item")
+                a(href="/users", class=(path === '/users' ? 'active' : '')) Benutzerliste
+            li(class="mobile-nav__item")
+                a(href="/login", class=(path === '/login' ? 'active' : '')) Login
+            li(class="mobile-nav__item")
+                a(href="/signup", class=(path === '/signup' ? 'active' : '')) Signup
+        else
+            li(class="mobile-nav__item")
+                a(href="/chat", class=(path === '/chat' ? 'active' : '')) Chatfeed
+            li(class="mobile-nav__item")
+                a(href="/private-chat", class=(path === '/private-chat' ? 'active' : '')) Privatchat
+            li(class="mobile-nav__item")
+                a(href="/profile", class=(path === '/profile' ? 'active' : '')) Profil
+            li(class="mobile-nav__item")
+                a(href="/users", class=(path === '/users' ? 'active' : '')) Benutzerliste
+            li(class="mobile-nav__item")
+                form(action="/logout" method="post")
+                    button(type="submit") Logout
