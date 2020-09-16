@@ -1,7 +1,7 @@
 # Node Chat Challenge
 A small Node.js MVC Chat application that uses the socket.io API.
 
-## Instalation
+## Installation
 Run `npm install` to install all dependencies.
 
 ## Before running
