@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('chat-challenge', 'postgres', 'hanalkush4wr', {
+// Initialize your own Postgres DB in advance and adjust the credentials accordingly
+const sequelize = new Sequelize('chat-challenge', 'postgres', 'anyPasswordYouChoose', {
     logging: false,
     host: 'localhost',
     dialect: 'postgres',
